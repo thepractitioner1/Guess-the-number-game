@@ -12,7 +12,7 @@ public class MessageGeneratorImpl implements MessageGenerator{
 
     @Autowired
     Game game;
-    int guessCount = 10;
+
 
     @PostConstruct
     public void checkInitialization(){
@@ -34,14 +34,14 @@ public class MessageGeneratorImpl implements MessageGenerator{
         }else if(!game.isValidNumberRange()){
             return "Invalid number range";
         }
-        else if(game.getRemainingGuesses() == guessCount){
+        else if(game.getRemainingGuesses() == game.getGuessCount()){
             return "what is your first guess";
         } else{
             String direction = "Lower";
             if(game.getGuess()<game.getNumber()){
                 direction = "Higher";
             }
-            return direction+ "! You have "+ game.getRemainingGuesses()+ " guess left";
+            return direction+ "! You have "+ game.getRemainingGuesses()+ " guesses left";
         }
 
     }

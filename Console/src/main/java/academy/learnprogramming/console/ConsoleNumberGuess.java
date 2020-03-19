@@ -2,7 +2,6 @@ package academy.learnprogramming.console;
 
 import academy.learnprogramming.Game;
 import academy.learnprogramming.MessageGenerator;
-import jdk.jfr.EventType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,7 @@ import java.util.Scanner;
 @Component
 public class ConsoleNumberGuess  {
 
-    private static final Logger log = LoggerFactory.getLogger(Main.class);
+    private static final Logger log = LoggerFactory.getLogger(ConsoleNumberGuess.class);
 
     //== fields ==
     @Autowired
