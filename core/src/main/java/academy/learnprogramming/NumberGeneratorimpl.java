@@ -5,26 +5,30 @@ import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
-
+@Component
 public class NumberGeneratorimpl implements NumberGenerator {
     // ==fields==
 
     private final Random random = new Random();
 
+
+    private final int maxNumber;
+
+
+
+    private final int minNumber;
+    // == Constructor==
+
     @Autowired
-    @MaxNumber
-    private int maxNumber;
-
-
-
-    @Autowired
-    @MinNumber
-    private int minNumber;
+    public NumberGeneratorimpl(@MaxNumber int maxNumber, @MinNumber int minNumber) {
+        this.maxNumber = maxNumber;
+        this.minNumber = minNumber;
+    }
 
     //== public methods ==
     @Override
     public int next() {
-        return random.nextInt(maxNumber + 1 - minNumber) +minNumber;
+        return random.nextInt(maxNumber - minNumber) +minNumber ;
     }
 
     @Override
